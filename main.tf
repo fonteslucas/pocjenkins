@@ -2,7 +2,7 @@
 module "s3web" {
     source = "./modules/s3"
     bucket_name = "lfg"
-    produto = "veiculos"
+    produto = "akjsghdiuasd"
 }
 
 /*
