@@ -23,7 +23,6 @@ pipeline {
             steps {
                 git "https://github.com/fonteslucas/pocjenkins.git"
                 sh 'ls -la'
-                    }
                 }
             }
 
@@ -37,7 +36,6 @@ pipeline {
             steps {
                 echo 'Executing TFSec'
                 sh 'tfsec -v'
-                sh 'ls -la'
                 sh 'tfsec --custom-check-dir tf-sec '
             }
         }
@@ -101,4 +99,6 @@ pipeline {
            sh "terraform destroy --auto-approve"
         }
     }
+
   }
+}
