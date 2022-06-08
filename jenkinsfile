@@ -41,7 +41,7 @@ pipeline {
             steps {
                 echo 'Executing TFSec'
                 sh 'tfsec -v'
-                sh 'ls'
+                sh 'ls terraform'
                 sh 'tfsec --custom-check-dir tf-sec '
             }
         }
@@ -55,6 +55,7 @@ pipeline {
             
             steps {
                 sh 'ls -la'
+                sh 'ls terraform'
                 sh 'terraform init -input=false'
                 sh 'terraform workspace select ${environment} || terraform workspace new ${environment}'
 
