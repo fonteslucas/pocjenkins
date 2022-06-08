@@ -26,6 +26,12 @@ pipeline {
                     }
                 }
             }
+
+        stage ('ls') {
+            steps {
+                sh 'ls -la'
+            }
+        }
         
         stage('tfsec')
             agent {
