@@ -25,6 +25,7 @@ pipeline {
                         dir("terraform")
                         {
                             git "https://github.com/fonteslucas/pocjenkins.git"
+                            sh 'ls -la'
                         }
                     }
                 }
@@ -55,6 +56,7 @@ pipeline {
             steps {
                 sh 'ls -la'
                 sh 'cd terraform'
+                sh 'ls -la'
                 sh 'terraform init -input=false'
                 sh 'terraform workspace select ${environment} || terraform workspace new ${environment}'
 
