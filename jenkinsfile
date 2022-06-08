@@ -23,9 +23,9 @@ pipeline {
             steps {
                 git "https://github.com/fonteslucas/pocjenkins.git"
                 sh 'ls -la'
+                    }
                 }
             }
-        }
 
         stage('tfsec') {
             agent {
