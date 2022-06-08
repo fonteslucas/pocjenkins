@@ -19,12 +19,16 @@ pipeline {
 
 
     stages {
-        stage('Copy Files') {
+        stage('checkout') {
             steps {
-                sh "aws s3 cp s3://backend-lfg/jenkinspoc/ ./ --recursive"
-                sh "ls -la"
+                 script{
+                        dir("terraform")
+                        {
+                            git "https://github.com/fonteslucas/pocjenkins.git"
+                        }
+                    }
+                }
             }
-        }
 
         stage('tfsec') {
             agent {
