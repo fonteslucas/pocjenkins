@@ -1,0 +1,16 @@
+checks:
+- code: Allowed Source
+  description: Custom check to ensure the Allowed Source is used.
+  resolution: Use Allowed Source
+  requiredTypes:
+  - module
+  requiredLabels:
+  - "*"
+  severity: ERROR
+  matchSpec:
+    name: source
+    action: startsWith
+    value: "./modules/s3"
+  errorMessage: The required Source was missing
+  relatedLinks:
+  - http://internal.bancopan.com/standards/aws/allowedsource.html
