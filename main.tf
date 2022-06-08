@@ -2,7 +2,7 @@
 module "s3web" {
     source = "./modules/s3"
     bucket_name = "lfg"
-    produto = "veiculos"
+    produto = "Veiculos"
 }
 
 /*
@@ -12,3 +12,4 @@ module "s3webbad" {
     produto = "Veiculos"
 }
 */
+
