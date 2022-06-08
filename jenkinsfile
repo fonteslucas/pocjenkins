@@ -21,15 +21,11 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/fonteslucas/pocjenkins.git"
-                            sh 'ls -la'
-                        }
-                    }
+                git "https://github.com/fonteslucas/pocjenkins.git"
+                sh 'ls -la'
                 }
             }
+        }
 
         stage('tfsec') {
             agent {
@@ -41,7 +37,6 @@ pipeline {
             steps {
                 echo 'Executing TFSec'
                 sh 'tfsec -v'
-                sh 'cd terraform'
                 sh 'ls -la'
                 sh 'tfsec --custom-check-dir tf-sec '
             }
@@ -55,8 +50,6 @@ pipeline {
             }
             
             steps {
-                sh 'ls -la'
-                sh 'cd terraform'
                 sh 'ls -la'
                 sh 'terraform init -input=false'
                 sh 'terraform workspace select ${environment} || terraform workspace new ${environment}'
